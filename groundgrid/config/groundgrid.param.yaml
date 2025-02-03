@@ -1,0 +1,16 @@
+/**:
+  ros__parameters:
+    point_count_cell_variance_threshold: 10
+    max_ring: 1024
+    ground_patch_detection_minimum_threshold: 0.01
+    distance_factor: 0.0001
+    minimum_distance_factor: 0.0005
+    minimum_point_height_threshold: 0.3
+    minimum_point_height_obstacle_threshold: 0.1
+    outlier_tolerance: 0.1
+    ground_patch_detection_minimum_point_count_threshold: 0.25
+    patch_size_change_distance: 20.0
+    occupied_cells_decrease_factor: 5.0
+    occupied_cells_point_count_factor: 20.0
+    min_outlier_detection_ground_confidence: 1.25
+    thread_count: 8

@@ -1,6 +1,7 @@
 devel/
-logs/
+log/
 build/
+install/
 bin/
 lib/
 msg_gen/
@@ -47,5 +48,8 @@ qtcreator-*
 # Emacs
 .#*
 
-# Catkin custom files
-CATKIN_IGNORE
+# Colcon custom files
+COLCON_IGNORE
+
+.vscode
+.cache
