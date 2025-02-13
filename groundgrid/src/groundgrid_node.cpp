@@ -35,6 +35,8 @@
 #include <tf2/convert.hpp>
 #include <tf2/exceptions.hpp>
 
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+
 #include <pcl_conversions/pcl_conversions.h>
 
 #include <functional>
