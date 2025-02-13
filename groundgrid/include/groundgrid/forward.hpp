@@ -47,7 +47,7 @@
 
 namespace groundgrid
 {
-using PointT = PointXYZIR;
+using PointT = PointXYZIL;
 using PCLPoint = typename pcl::PointCloud<PointT>;
 using PCLPointPtr = typename PCLPoint::Ptr;
 

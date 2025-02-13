@@ -219,7 +219,7 @@ void GroundSegmentation::insertPointcloud(
     // point count map used for evaluation
     gpr(gi(0), gi(1)) += 1.0f;
 
-    if (point.ring > config_.max_ring || sqdist < minDistSquared) {
+    if (point.label > config_.max_ring || sqdist < minDistSquared) {
       ignored.push_back(std::make_pair(i, gi));
       continue;
     }

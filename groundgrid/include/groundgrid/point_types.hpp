@@ -9,22 +9,25 @@
 #define GROUNDGRID__POINT_TYPES_HPP_
 
 #include <Eigen/Core>
+#include <pcl/impl/point_types.hpp>
 
 #include <Eigen/src/Core/util/ConfigureVectorization.h>
 #include <pcl/point_types.h>
 
+#include <cstdint>
+
 namespace groundgrid
 {
 /**
- * @brief Simple 3D point with intensity and ring.
+ * @brief Simple 3D point with intensity and label.
  */
-struct EIGEN_ALIGN16 PointXYZIR
+struct EIGEN_ALIGN16 PointXYZIL
 {
   // Constructors
-  PointXYZIR() : x(0.0f), y(0.0f), z(0.0f), intensity(0.0f), ring(0) {}
+  PointXYZIL() : x(0.0f), y(0.0f), z(0.0f), intensity(0.0f), label(0) {}
 
-  PointXYZIR(float _x, float _y, float _z, float _intensity, std::uint16_t _ring)
-  : x(_x), y(_y), z(_z), intensity(_intensity), ring(_ring)
+  PointXYZIL(float _x, float _y, float _z, float _intensity, std::uint16_t _label)
+  : x(_x), y(_y), z(_z), intensity(_intensity), label(_label)
   {
   }
 
@@ -33,7 +36,7 @@ struct EIGEN_ALIGN16 PointXYZIR
   float y;
   float z;
   float intensity;
-  std::uint16_t ring;
+  uint16_t label;
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
@@ -70,8 +73,8 @@ struct EIGEN_ALIGN16 PointXYZIDRA
 };  // namespace groundgrid
 
 POINT_CLOUD_REGISTER_POINT_STRUCT(
-  groundgrid::PointXYZIR,
-  (float, x, x)(float, y, y)(float, z, z)(float, intensity, intensity)(std::uint16_t, ring, ring))
+  groundgrid::PointXYZIL,
+  (float, x, x)(float, y, y)(float, z, z)(float, intensity, intensity)(std::uint16_t, label, label))
 
 POINT_CLOUD_REGISTER_POINT_STRUCT(
   groundgrid::PointXYZIDRA,
