@@ -2,12 +2,24 @@
 <launch>
   <arg name="param_path" default="$(find-pkg-share groundgrid)/config/groundgrid.param.yaml"/>
 
+  <arg name="input/odometry" default="input/odometry"/>
   <arg name="input/pointcloud" default="input/pointcloud"/>
   <arg name="output/pointcloud" default="output/pointcloud"/>
 
-  <node pkg="groundgrid" exec="groundgrid_node" output="screen">
+  <node pkg="groundgrid" exec="groundgrid_node" namespace="groundgrid" output="screen">
     <param from="$(var param_path)" allow_substs="true"/>
+    <remap from="~/input/odometry" to="$(var input/odometry)"/>
     <remap from="~/input/pointcloud" to="$(var input/pointcloud)"/>
     <remap from="~/output/pointcloud" to="$(var output/pointcloud)"/>
   </node>
+
+  <arg name="visualize" default="true">
+    <choice value="true"/>
+    <choice value="false"/>
+  </arg>
+
+  <group if="$(var visualize)">
+    <arg name="rviz" default="$(find-pkg-share groundgrid)/rviz/groundgrid.rviz"/>
+    <node pkg="rviz2" exec="rviz2" args="-d $(var rviz)"/>
+  </group>
 </launch>
